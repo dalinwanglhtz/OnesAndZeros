@@ -1,0 +1,26 @@
+package com.codewardev;
+
+// https://www.codewars.com/kata/ones-and-zeros/train/java
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class BinaryArrayToNumber {
+
+	public static int ConvertBinaryArrayToInt(List<Integer> binary) {
+		
+		int binaryVal = Integer.valueOf(binary.stream().map(x->x+"").collect(Collectors.joining()));
+		int result = 0;
+		int remainder =0;
+		int n=1;
+		while(binaryVal != 0) {
+			remainder = binaryVal % 10;
+			result += remainder*n;
+			n *= 2;
+			binaryVal /= 10;
+		}
+		
+		return result;
+	}
+
+}
