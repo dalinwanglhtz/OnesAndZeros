@@ -11,11 +11,9 @@ public class BinaryArrayToNumber {
 		
 		int binaryVal = Integer.valueOf(binary.stream().map(x->x+"").collect(Collectors.joining()));
 		int result = 0;
-		int remainder =0;
 		int n=1;
 		while(binaryVal != 0) {
-			remainder = binaryVal % 10;
-			result += remainder*n;
+			result += (binaryVal % 10)*n;
 			n *= 2;
 			binaryVal /= 10;
 		}
